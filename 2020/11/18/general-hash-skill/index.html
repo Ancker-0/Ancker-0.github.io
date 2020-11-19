@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"ancker-0.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ancker-0">
-<meta property="og:url" content="http://ancker-0.github.io/index.html">
+  <meta name="description" content="Hash 是一种常见的算法，C++11 中的 std::unordered_map 的思想就是 Hash，一位先哲曾经说过：  Hash 就是一通乱搞。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常见的几种 Hash 方法">
+<meta property="og:url" content="http://ancker-0.github.io/2020/11/18/general-hash-skill/index.html">
 <meta property="og:site_name" content="Ancker-0">
+<meta property="og:description" content="Hash 是一种常见的算法，C++11 中的 std::unordered_map 的思想就是 Hash，一位先哲曾经说过：  Hash 就是一通乱搞。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-11-18T13:02:24.000Z">
+<meta property="article:modified_time" content="2020-11-19T13:06:12.596Z">
 <meta property="article:author" content="Ancker-0">
+<meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://ancker-0.github.io/">
+<link rel="canonical" href="http://ancker-0.github.io/2020/11/18/general-hash-skill/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Ancker-0</title>
+  <title>常见的几种 Hash 方法 | Ancker-0</title>
   
 
 
@@ -154,165 +159,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://ancker-0.github.io/2020/11/19/grandmas-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ancker-0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ancker-0">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/19/grandmas-world/" class="post-title-link" itemprop="url">「散文」外婆的世界-李娟</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-11-19 21:11:44 / Modified: 21:18:08" itemprop="dateCreated datePublished" datetime="2020-11-19T21:11:44+08:00">2020-11-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%96%87%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">文学</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>外婆跟着我时，总是白白胖胖，慈眉善目的；跟着我妈时，整天看上去苦大仇深的。但这怎么能怪我妈呢？我妈家大业大，又是鸡又是狗又是牛的，整天忙得团团转，哪能像我一样专心。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/19/grandmas-world/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://ancker-0.github.io/2020/11/18/Cow-Brainiacs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Ancker-0">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ancker-0">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/Cow-Brainiacs/" class="post-title-link" itemprop="url">「题解」[USACO 2002 Orange] Cow Brainiacs</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-11-18 21:27:37" itemprop="dateCreated datePublished" datetime="2020-11-18T21:27:37+08:00">2020-11-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-19 21:07:35" itemprop="dateModified" datetime="2020-11-19T21:07:35+08:00">2020-11-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="原题">原题</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/18/Cow-Brainiacs/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -328,10 +178,9 @@
       <meta itemprop="name" content="Ancker-0">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/11/18/general-hash-skill/" class="post-title-link" itemprop="url">常见的几种 Hash 方法</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          常见的几种 Hash 方法
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -370,33 +219,99 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Hash 是一种常见的算法，C++11 中的 <code>std::unordered_map</code> 的思想就是 Hash，一位先哲曾经说过：</p>
+        <p>Hash 是一种常见的算法，C++11 中的 <code>std::unordered_map</code> 的思想就是 Hash，一位先哲曾经说过：</p>
 <blockquote>
 <p>Hash 就是一通乱搞。</p>
 </blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/11/18/general-hash-skill/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+<a id="more"></a>
+<p>并且 Hash 有助于提高我们的思维能力 <del>（水过字符串匹配的题）</del>。</p>
+<p>由此可见 Hash 的重要性，因此接下来介绍常见的几种 Hash 方法，这些方法常常组合在一起使用。</p>
+<h3 id="转换进制">转换进制</h3>
+<p>把一个进制下的数字当作另一个进制来处理。</p>
+<p>例如，我们把 10 进制的 123 作为 13 进制：</p>
+<p><span class="math display">\[
+123=1\times10^2+2\times10^1+3\times10^0
+\]</span></p>
+<p>作为 13 进制就是：</p>
+<p><span class="math display">\[
+(123)_{13}=1\times13^2+2\times13^1+3\times13^0=198
+\]</span></p>
+<p>人们发现 <del>（懒得证明）</del>，当基数（上例中为 13）取质数时，产生冲突的几率较小，取 131，13331 时发生冲突的概率尤其小。</p>
+<p>推而广之，我们还可以这样：</p>
+<p><span class="math display">\[
+hash(x)=7\times x_1+77\times x_2+777\times x_3+\dots
+\]</span></p>
+<h3 id="取模法">取模法</h3>
+<p>顾名思义，对一个质数取模。</p>
+<p>通常这个质数取值为小于 <span class="math inline">\(2^{\lceil\log_2n\rceil}\)</span> 的最大质数，其中 <span class="math inline">\(n\)</span> 为 <em>需要离散化的元素个数</em>。</p>
+<p>即</p>
+<p><span class="math display">\[
+hash(x)=x\bmod p
+\]</span></p>
+<p>常用的质数有：<span class="math inline">\(97,997,4999,9973,49999,99991,999979,9999991,10^9+7,10^9+9\)</span></p>
+<p><a target="_blank" rel="noopener" href="https://www.haomeili.net/ZhiShu"><em>这是一个查询质数的网站</em></a>。</p>
+<h3 id="自然溢出法">自然溢出法</h3>
+<p>同取模法，依据 <code>unsigned long long</code> 和 <code>unsigned int</code> 会自动抛弃越界的数的特性进行处理，通常用于只需要判断相等而不需要储存（因为结果可能会特别大）的时候。</p>
+<h3 id="拉链法">拉链法</h3>
+<p>在处理时如果遇到冲突，通常需要拉出一个链表，此时可以取：</p>
+<p><span class="math display">\[
+hash&#39;(x)=hash(x)+i\ |\ src(hash(x)+i)=x
+\]</span></p>
+<p>即当 <span class="math inline">\(hash(x)\)</span> 已经被 <span class="math inline">\(y\ne x\ |\ hash(y)=hash(x)\)</span> 占用时，取下一个位置，若还被占用，就再往下找，依次类推。</p>
+<p>上例中，<span class="math inline">\(i\)</span> 取 <span class="math inline">\(1,2,3,\dots\)</span>，但如果 <span class="math inline">\(hash\)</span> 的值普遍集中在一个区域内，就会消耗较多时间，因此也可以取 <span class="math inline">\(1^2,2^2,3^2,4^2,\dots\)</span>。</p>
+<p>当然，为了访问随机，<span class="math inline">\(i\)</span> 也可以取 <span class="math inline">\(hash(i)\)</span>。</p>
+<h3 id="高低位">高低位</h3>
+<p>这是双 Hash 的一种，顾名思义，就是高位和低位使用两种不同的 Hash 函数，再组合到一起。</p>
+<p>取 <span class="math inline">\(p_1,p_2\)</span> 为质数且 <span class="math inline">\(p_2\times(p_1+1)&lt;n\)</span>，其中 <span class="math inline">\(n\)</span> 为 <em>需要离散化的元素个数</em>。取 <span class="math inline">\(k_1,k_2\)</span> 为转换的进制且 <span class="math inline">\(k_1\ne k_2\)</span>。运用转换进制和取模法，将 <span class="math inline">\(x\)</span> 转为 <span class="math inline">\(k\)</span> 进制后对 <span class="math inline">\(p\)</span> 取模，得到 <span class="math inline">\(hash1(x),hash2(x)\)</span>。最终再将两个结合在一起，即</p>
+<p><span class="math display">\[
+hash(x)=p_2\times hash1(x)+hash2(x)
+\]</span></p>
+<p>如果不需要储存，只需要判断相等，也可以分两个数组存放两种 Hash；或者用自然溢出，将两个定义域为 <code>unsigned int</code> 的 Hash 函数组合为 <code>unsigned long long</code>，前后 32 位存放不同的 Hash 值。</p>
+<h3 id="前缀和">前缀和</h3>
+<p>方法类似于前缀和，但有所不同，用此方法可以快速求字符串的子串的哈希值。</p>
+<p>该方法只适用于转换进制法。</p>
+<p>例如 str='12345'，转为 k 进制，易得：</p>
+<p><span class="math display">\[
+\begin{aligned}
+hash(123)&amp;=1\times k^2+2\times k^1+3\times k^0\\\\
+hash(45)&amp;=&amp;4\times k^1+5\times k^0\\\\
+hash(12345)&amp;=1\times k^4+2\times k^3+3\times k^2+&amp;4\times k^1+5\times k^0
+\end{aligned}
+\]</span></p>
+<p>显然：</p>
+<p><span class="math display">\[
+hash(45)=hash(12345)-k^2hash(123)
+\]</span></p>
+<p>类似地，<span class="math inline">\(hash(str_{i,j})=hash(str_{0,j})-k^{j-i+1}hash(str_{0,i-1})\)</span></p>
+<p>预处理时，可以 <span class="math inline">\(O(n)\)</span> 一遍扫过去，还可以先预处理出 <span class="math inline">\(k^i\)</span>。</p>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/Note/" rel="tag"># Note</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/18/Cow-Brainiacs/" rel="next" title="「题解」[USACO 2002 Orange] Cow Brainiacs">
+      「题解」[USACO 2002 Orange] Cow Brainiacs <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
@@ -449,6 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%E8%BF%9B%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">转换进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E6%A8%A1%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">取模法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E7%84%B6%E6%BA%A2%E5%87%BA%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">自然溢出法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E9%93%BE%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">拉链法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E4%BD%8E%E4%BD%8D"><span class="nav-number">5.</span> <span class="nav-text">高低位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BC%80%E5%92%8C"><span class="nav-number">6.</span> <span class="nav-text">前缀和</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

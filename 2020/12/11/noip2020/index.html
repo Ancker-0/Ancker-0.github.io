@@ -28,7 +28,7 @@
 <meta property="og:description" content="NOIP2020 的惨痛教训">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-12-11T12:11:03.000Z">
-<meta property="article:modified_time" content="2020-12-11T12:11:03.201Z">
+<meta property="article:modified_time" content="2020-12-12T11:15:03.358Z">
 <meta property="article:author" content="Ancker-0">
 <meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
@@ -196,6 +196,13 @@
 
               <time title="Created: 2020-12-11 20:11:03" itemprop="dateCreated datePublished" datetime="2020-12-11T20:11:03+08:00">2020-12-11</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-12-12 19:15:03" itemprop="dateModified" datetime="2020-12-12T19:15:03+08:00">2020-12-12</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -226,6 +233,8 @@
 <p>还可以用 <code>time XXX</code> 运行你的程序以测试运行时间（real）。</p>
 <h2 id="spj">SPJ</h2>
 <p>NOIP2020 出人意料地出了一题 spj，还给了一个奇奇怪怪的 checker，于是我花了接近 20 分钟研究那个 checker，最后发现还是个普普通通的模拟，导致最后没什么时间了……所以，别在 checker 上浪费时间。</p>
+<h2 id="cmath">&lt;cmath&gt;</h2>
+<p>本人是十分喜欢用 C 风格的头文件的，因为编译速度飞快。然而，<code>&lt;cmath&gt;</code> 里的 <code>pow()</code> 似乎对于 <code>unsigned long long</code> 会溢出，导致一些奇怪的错误，所以一些如 <code>abs</code>、<code>min</code>、<code>pow</code> 之类的函数最好自己写。</p>
 <h2 id="netcat">netcat</h2>
 <p>突然发现 <code>NOI Linux</code> 上可以用 <code>nc</code>（<code>netcat</code>）命令通信，而且 JX 直接在实体机上装 Linux，所以……base64……咳咳</p>
 
@@ -279,6 +288,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -325,7 +335,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mle"><span class="nav-number">1.</span> <span class="nav-text">MLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spj"><span class="nav-number">2.</span> <span class="nav-text">SPJ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netcat"><span class="nav-number">3.</span> <span class="nav-text">netcat</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mle"><span class="nav-number">1.</span> <span class="nav-text">MLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spj"><span class="nav-number">2.</span> <span class="nav-text">SPJ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmath"><span class="nav-number">3.</span> <span class="nav-text">&lt;cmath&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netcat"><span class="nav-number">4.</span> <span class="nav-text">netcat</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -529,6 +539,26 @@
     
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '84472913d7e54ad4ba2e',
+      clientSecret: '59a510b231507bfaa5eb8428c055032ae30205fc',
+      repo        : 'Ancker-0.github.io',
+      owner       : 'Ancker-0',
+      admin       : ['Ancker-0'],
+      id          : '8165f2d57e3159f7f4d11c2a2417026f',
+        language: 'en',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>

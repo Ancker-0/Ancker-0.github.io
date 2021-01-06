@@ -20,33 +20,28 @@
     var CONFIG = {"hostname":"ancker-0.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Hal Burch conducted an analysis over spring break of 1999 and made an amazing discovery: there are only 16 types of programming contest problems! Furthermore, the top several comprise almost 80% of th">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Programming Contest Problem Types">
-<meta property="og:url" content="http://ancker-0.github.io/2021/01/06/algos/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Ancker-0">
+<meta property="og:url" content="http://ancker-0.github.io/page/2/index.html">
 <meta property="og:site_name" content="Ancker-0">
-<meta property="og:description" content="Hal Burch conducted an analysis over spring break of 1999 and made an amazing discovery: there are only 16 types of programming contest problems! Furthermore, the top several comprise almost 80% of th">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-01-06T15:44:46.000Z">
-<meta property="article:modified_time" content="2021-01-06T15:44:46.074Z">
 <meta property="article:author" content="Ancker-0">
-<meta property="article:tag" content="Note">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://ancker-0.github.io/2021/01/06/algos/">
+<link rel="canonical" href="http://ancker-0.github.io/page/2/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : false,
-    isPost : true,
+    isHome : true,
+    isPost : false,
     lang   : 'en'
   };
 </script>
 
-  <title>Programming Contest Problem Types | Ancker-0</title>
+  <title>Ancker-0</title>
   
 
 
@@ -164,14 +159,13 @@
         <div class="content-wrap">
           
 
-          <div class="content post posts-expand">
+          <div class="content index posts-expand">
             
-
-    
+      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://ancker-0.github.io/2021/01/06/algos/">
+    <link itemprop="mainEntityOfPage" href="http://ancker-0.github.io/2020/11/18/general-hash-skill/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -183,9 +177,10 @@
       <meta itemprop="name" content="Ancker-0">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          Programming Contest Problem Types
-        </h1>
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/18/general-hash-skill/" class="post-title-link" itemprop="url">常见的几种 Hash 方法</a>
+        </h2>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -194,8 +189,15 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2021-01-06 23:44:46" itemprop="dateCreated datePublished" datetime="2021-01-06T23:44:46+08:00">2021-01-06</time>
+              <time title="Created: 2020-11-18 21:02:24" itemprop="dateCreated datePublished" datetime="2020-11-18T21:02:24+08:00">2020-11-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-19 21:06:12" itemprop="dateModified" datetime="2020-11-19T21:06:12+08:00">2020-11-19</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -217,83 +219,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Hal Burch conducted an analysis over spring break of 1999 and made an amazing discovery: there are only 16 types of programming contest problems! Furthermore, the top several comprise almost 80% of the problems seen at the IOI. Here they are: <a id="more"></a></p>
-<ul>
-<li>Dynamic Programming</li>
-<li>Greedy</li>
-<li>Complete Search</li>
-<li>Flood Fill</li>
-<li>Shortest Path</li>
-<li>Recursive Search Techniques</li>
-<li>Minimum Spanning Tree</li>
-<li>Knapsack</li>
-<li>Computational Geometry</li>
-<li>Network Flow</li>
-<li>Eulerian Path</li>
-<li>Two-Dimensional Convex Hull</li>
-<li>BigNums</li>
-<li>Heuristic Search</li>
-<li>Approximate Search</li>
-<li>Ad Hoc Problems</li>
-</ul>
-<p>The most challenging problems are Combination Problems which involve a loop (combinations, subsets, etc.) around one of the above algorithms - or even a loop of one algorithm with another inside it. These seem extraordinarily tricky to get right, even though conceptually they are <strong>obvious</strong>.</p>
-<p>If you can master solving just 40% of these problem types, you can almost guarantee a silver medal at the IOI. Mastering 80% moves you into the gold range almost for sure. Of course, <em>mastery</em> is a tough nut to crack! We'll be supplying a plethora of problems so that you can hone your skills in the quest for international fame.</p>
-<p><em>From: <a target="_blank" rel="noopener" href="https://train.usaco.org/" class="uri">https://train.usaco.org/</a></em></p>
-
+          <p>Hash 是一种常见的算法，C++11 中的 <code>std::unordered_map</code> 的思想就是 Hash，一位先哲曾经说过：</p>
+<blockquote>
+<p>Hash 就是一通乱搞。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/11/18/general-hash-skill/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
     </div>
 
     
     
     
-        
-
-<div>
-<ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>Post author:  </strong>Ancker-0
-  </li>
-  <li class="post-copyright-link">
-    <strong>Post link: </strong>
-    <a href="http://ancker-0.github.io/2021/01/06/algos/" title="Programming Contest Problem Types">http://ancker-0.github.io/2021/01/06/algos/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
-  </li>
-</ul>
-</div>
-
-
       <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/Note/" rel="tag"># Note</a>
-          </div>
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2020/12/15/scene/" rel="prev" title="「作文」这样的画面，让我流连">
-      <i class="fa fa-chevron-left"></i> 「作文」这样的画面，让我流连
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/07/Crafting-Winning-Solutions/" rel="next" title="Crafting Winning Solutions">
-      Crafting Winning Solutions <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
+        <div class="post-eof"></div>
       </footer>
-    
   </article>
   
   
   
 
 
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="Previous page"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+
 
           </div>
           
-    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -488,28 +449,62 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
-    var gitalk = new Gitalk({
-      clientID    : '84472913d7e54ad4ba2e',
-      clientSecret: '59a510b231507bfaa5eb8428c055032ae30205fc',
-      repo        : 'Ancker-0.github.io',
-      owner       : 'Ancker-0',
-      admin       : ['Ancker-0'],
-      id          : '2583ed2955919fea87a207ebb48698d0',
-        language: 'en',
-      distractionFreeMode: true
-    });
-    gitalk.render('gitalk-container');
-  }, window.Gitalk);
-});
-</script>
 
 </body>
 </html>

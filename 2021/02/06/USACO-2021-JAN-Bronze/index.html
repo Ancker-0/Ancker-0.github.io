@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ancker-0.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Uddered but not Herd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[SOLUTION] USACO 2021 JAN Bronze">
+<meta property="og:url" content="http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/index.html">
+<meta property="og:site_name" content="Ancker-0">
+<meta property="og:description" content="Uddered but not Herd">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-06T08:36:12.000Z">
+<meta property="article:modified_time" content="2021-02-06T08:37:41.511Z">
+<meta property="article:author" content="Ancker-0">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>[SOLUTION] USACO 2021 JAN Bronze | Ancker-0</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ancker-0</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-playlist">
+
+    <a href="/playlist/" rel="section"><i class="fa fa-music fa-fw"></i>Playlist</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ancker-0">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ancker-0">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          [SOLUTION] USACO 2021 JAN Bronze
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-02-06 16:36:12 / Modified: 16:37:41" itemprop="dateCreated datePublished" datetime="2021-02-06T16:36:12+08:00">2021-02-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OI/" itemprop="url" rel="index"><span itemprop="name">OI</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="uddered-but-not-herd">Uddered but not Herd</h2>
+<a id="more"></a>
+<p>Statement:</p>
+<div class="tabs" id="uddered-but-not-herd"><ul class="nav-tabs"><li class="tab active"><a href="#uddered-but-not-herd-1">En</a></li><li class="tab"><a href="#uddered-but-not-herd-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="uddered-but-not-herd-1"><p>A little known fact about cows is that they have their own version of the alphabet, the "cowphabet". It consists of the 26 letters 'a' through 'z', but when a cow speaks the cowphabet, she lists these letters in a specific ordering that might be different from the order 'abcdefghijklmnopqrstuvwxyz' we are used to hearing. To pass the time, Bessie the cow has been humming the cowphabet over and over again, and Farmer John is curious how many times she's hummed it.</p>
+<p>Given a lowercase string of letters that Farmer John has heard Bessie say, compute the minimum number of times Bessie must have hummed the entire cowphabet in order for Farmer John to have heard the given string. Farmer John isn't always paying attention to what Bessie hums, and so he might have missed some of the letters that Bessie has hummed. The string you are told consists of just the letters that he remembers hearing.</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin): The first line of input contains the 26 lowercase letters 'a' through 'z' in the order they appear in the cowphabet. The next line contains the string of lowercase letters that Farmer John heard Bessie say. This string has length at least 1 and at most 1000. OUTPUT FORMAT (print output to the terminal / stdout): Print the minimum number of times Bessie must have hummed the entire cowphabet. SAMPLE INPUT: abcdefghijklmnopqrstuvwxyz mood SAMPLE OUTPUT: 3 In this example, the cowphabet is ordered the same as the normal alphabet.</p>
+<p>Bessie must have hummed the cowphabet at least three times. It is possible for Bessie to have only hummed the cowphabet three times, and for Farmer John to have heard the letters in uppercase as denoted below.</p>
+<p>abcdefghijklMnOpqrstuvwxyz abcdefghijklmnOpqrstuvwxyz abcDefghijklmnopqrstuvwxyz SCORING: In test cases 2-5, the cowphabet is the same as the normal alphabet. Test cases 6-10 satisfy no additional constraints.</p></div><div class="tab-pane" id="uddered-but-not-herd-2"><p>一个鲜为人知的事实是，奶牛拥有自己的文字：「牛文」。牛文由 26 个字母 'a' 到 'z' 组成，但是当奶牛说牛文时，可能与我们所熟悉的 'abcdefghijklmnopqrstuvwxyz' 不同，她会按某种特定的顺序排列字母。 为了打发时间，奶牛 Bessie 在反复哼唱牛文字母歌，而 Farmer John 好奇她唱了多少遍。</p>
+<p>给定一个小写字母组成的字符串，为 Farmer John 听到 Bessie 唱的字母，计算 Bessie 至少唱了几遍完整的牛文字母歌，使得 Farmer John 能够听到给定的字符串。Farmer John 并不始终注意 Bessie 所唱的内容，所以他可能会漏听 Bessie 唱过的一些字母。给定的字符串仅包含他记得他所听到的字母。</p>
+<p>输入格式（从终端/标准输入读入）： 输入的第一行包含 26 个小写字母 'a' 到 'z' 的牛文字母表顺序。下一行包含一个小写字母组成的字符串，为 Farmer John 听到 Bessie 唱的字母。字符串的长度不小于 1 且不大于 1000。 输出格式（输出至终端/标准输出）： 输出 Bessie 所唱的完整的牛文字母歌的最小次数。 输入样例： abcdefghijklmnopqrstuvwxyz mood 输出样例： 3 在这个样例中，牛文字母表与日常的字母表的排列一致。</p>
+<p>Bessie 至少唱了三遍牛文字母歌。有可能 Bessie 只唱了三遍牛文字母歌，而 Farmer John 听到了以下被标记为大写的字母。</p>
+<p>abcdefghijklMnOpqrstuvwxyz abcdefghijklmnOpqrstuvwxyz abcDefghijklmnopqrstuvwxyz 测试点性质： 测试点 2-5 中，牛文字母表与日常的字母表相同。 测试点 6-10 没有额外限制。</p></div></div></div>
+<p>Suppose Bessie says <span class="math inline">\(s_{0...n - 1}\)</span>. First we can decode what Bessie says into ordered numbers. Second we count how many <span class="math inline">\(i \ne 0\)</span> appears such that <span class="math inline">\(s_{i} \le s_{i - 1}\)</span>. Every time such <span class="math inline">\(i\)</span> appears, it means that another song must begin. So <code>cnt + 1</code> will be the right answer.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> dict[<span class="number">30</span>], input[<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">30</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Decode</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">map</span>[x - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%s%s&quot;</span>, dict, input);</span><br><span class="line">	n = <span class="built_in">strlen</span>(input);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">		<span class="built_in">map</span>[dict[i] - <span class="string">&#x27;a&#x27;</span>] = i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (Decode(input[i]) &lt;= Decode(input[i - <span class="number">1</span>]))</span><br><span class="line">			++ans;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="even-more-odd-photos">Even More Odd Photos</h2>
+<p>Statement:</p>
+<div class="tabs" id="even-more-odd-photos"><ul class="nav-tabs"><li class="tab active"><a href="#even-more-odd-photos-1">En</a></li><li class="tab"><a href="#even-more-odd-photos-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="even-more-odd-photos-1"><p>Farmer John is yet again trying to take a photograph of his N cows (2≤N≤1000). Each cow has an integer "breed ID" number in the range 1…100. Farmer John has a very peculiar idea in mind for his photo: he wants to partition all the cows into disjoint groups (in other words, place each cow in exactly one group) and then line up the groups so the sum of the breed IDs of the cows in the first group is even, the sum of the IDs in the second group is odd, and so on, alternating between even and odd.</p>
+<p>What is the maximum possible number of groups Farmer John can form?</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin): The first line of input contains N. The next line contains N space-separated integers giving the breed IDs of the N cows. OUTPUT FORMAT (print output to the terminal / stdout): The maximum possible number of groups in Farmer John's photo. It can be shown that at least one feasible grouping exists. SAMPLE INPUT: 7 1 3 5 7 9 11 13 SAMPLE OUTPUT: 3 In this example, one way to form the maximum number of three groups is as follows. Place 1 and 3 in the first group, 5, 7, and 9 in the second group, and 11 and 13 in the third group.</p>
+<p>SAMPLE INPUT: 7 11 2 17 13 1 15 3 SAMPLE OUTPUT: 5 In this example, one way to form the maximum number of five groups is as follows. Place 2 in the first group, 11 in the second group, 13 and 1 in the third group, 15 in the fourth group, and 17 and 3 in the fifth group.</p></div><div class="tab-pane" id="even-more-odd-photos-2"><p>Farmer John 正再一次尝试给他的 N 头奶牛拍照（2≤N≤1000）。<br />
+每头奶牛有一个范围在 1…100 之内的整数的「品种编号」。Farmer John 对他的照片有一个十分古怪的构思：他希望将所有的奶牛分为不相交的若干组（换句话说，将每头奶牛分到恰好一组中）并将这些组排成一行，使得第一组的奶牛的品种编号之和为偶数，第二组的编号之和为奇数，以此类推，奇偶交替。</p>
+<p>Farmer John 可以分成的最大组数是多少？</p>
+<p>输入格式（从终端/标准输入读入）：<br />
+输入的第一行包含 N。下一行包含 N 个空格分隔的整数，为 N 头奶牛的品种编号。</p>
+<p>输出格式（输出至终端/标准输出）：<br />
+输出 Farmer John 的照片中的最大组数。可以证明，至少存在一种符合要求的分组方案。</p>
+<p>输入样例：<br />
+7<br />
+1 3 5 7 9 11 13</p>
+<p>输出样例：<br />
+3</p>
+<p>在这个样例中，以下是一种分成最大组数三组的方案。将 1 和 3 分在第一组，5、7 和 9 分在第二组，11 和 13 分在第三组。</p>
+<p>输入样例：<br />
+7<br />
+11 2 17 13 1 15 3</p>
+<p>输出样例：<br />
+5</p>
+<p>在这个样例中，以下是一种分成最大组数五组的方案。将 2 分在第一组，11 分在第二组，13 和 1 分在第三组，15 分在第四组，17 和 3 分在第五组。</p></div></div></div>
+<p>It doesn't matter how tall the cow is or the order of them. It matters if a height is odd or even. Just simply count how many odd numbers and even numbers, list all possible situations.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> odd = <span class="number">0</span>, even = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">		<span class="keyword">if</span> (a &amp; <span class="number">1</span>) ++odd;</span><br><span class="line">		<span class="keyword">else</span> ++even;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (even == odd) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, n);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (even &gt; odd) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, odd * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;  <span class="comment">// even &lt; odd</span></span><br><span class="line">		<span class="keyword">if</span> (odd == <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			odd -= even;</span><br><span class="line">			<span class="keyword">if</span> (odd % <span class="number">3</span> == <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (odd % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;  <span class="comment">// odd % 3 == 2</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="just-stalling">Just Stalling</h2>
+<p>Statement:</p>
+<div class="tabs" id="just-stalling"><ul class="nav-tabs"><li class="tab active"><a href="#just-stalling-1">En</a></li><li class="tab"><a href="#just-stalling-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="just-stalling-1"><p>Farmer John has N cows (1≤N≤20) of heights a1…aN. His barn has N stalls with max height limits b1…bN (so for example, if b5=17, then a cow of height at most 17 can reside in stall 5). In how many distinct ways can Farmer John arrange his cows so that each cow is in a different stall, and so that the height limit is satisfied for every stall?</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin):<br />
+The first line contains N. The second line contains N space-separated integers a1,a2,…,aN. The third line contains N space-separated integers b1,b2,…,bN. All heights and limits are in the range [1,109].</p>
+<p>OUTPUT FORMAT (print output to the terminal / stdout):<br />
+The number of ways Farmer John can place each cow into a different stall such that the height limit is satisfied for every stall. Note that the large size of the output might require the use of a 64-bit integer, like a "long long" in C++.</p>
+<p>SAMPLE INPUT:<br />
+4<br />
+1 2 3 4<br />
+2 4 3 4</p>
+<p>SAMPLE OUTPUT:<br />
+8</p>
+<p>In this example, we cannot place the third cow into the first stall since 3=a3&gt;b1=2. Similarly, we cannot place the fourth cow into the first or third stalls. One way to satisfy the height limits is to assign cow 1 to stall 1, cow 2 to stall 2, cow 3 to stall 3, and cow 4 to stall 4.</p>
+<p>SCORING:</p>
+<ul>
+<li>Test cases 1-5 satisfy N≤8.</li>
+<li>Test cases 6-12 satisfy no additional constraints.</li>
+</ul></div><div class="tab-pane" id="just-stalling-2"><p>Farmer John 有 N 头奶牛（1≤N≤20），高度为 a1…aN。他的牛栏有 N 个牛棚，高度限制分别为 b1…bN（例如，如果 b5=17，那么一头高度不超过 17 的奶牛可以住在牛棚 5 里）。Farmer John 有多少种不同的方式安排他的奶牛，使得每头奶牛均住在不同的牛棚里，并且使得每个牛棚的高度限制均得到满足？</p>
+<p>输入格式（从终端/标准输入读入）：<br />
+输入的第一行包含 N。第二行包含 N 个空格分隔的整数 a1,a2,…,aN。第三行包含 N 个空格分隔的整数 b1,b2,…,bN。所有的高度和高度限制均在范围 [1,109] 内。</p>
+<p>输出格式（输出至终端/标准输出）：<br />
+输出 Farmer John 可以将每头奶牛安排到不同的牛棚里，使得每个牛棚的高度限制均得到满足的方法数。注意输出的数量可能需要使用 64 位整数型，例如 C++ 中的 long long。</p>
+<p>输入样例：<br />
+4<br />
+1 2 3 4<br />
+2 4 3 4</p>
+<p>输出样例：<br />
+8</p>
+<p>在这个例子中，我们不能将第三头奶牛安排到第一个牛棚里，因为 3=a3&gt;b1=2。类似地，我们不能将第四头奶牛安排到第一或第三个牛棚里。一种符合高度限制的安排方式为将奶牛 1 安排到牛棚 1，奶牛 2 安排到牛棚 2，奶牛 3 安排到牛棚 3，奶牛 4 安排到牛棚 4。</p>
+<p>测试点性质：</p>
+<ul>
+<li>测试点 1-5 满足 N≤8。</li>
+<li>测试点 6-12 没有额外限制。</li>
+</ul></div></div></div>
+<p>For <span class="math inline">\(n \le 8\)</span>, we can enumerate all possible permutations and check if they are legal. This takes <span class="math inline">\(O(n!)\)</span> time.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">30</span>], b[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ac[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> sta)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pos == n + <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	LL ret = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, sz = (<span class="keyword">int</span>)ac[pos].size(); i &lt; sz; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((sta &amp; (<span class="number">1</span> &lt;&lt; ac[pos][i])) == <span class="number">0</span>)</span><br><span class="line">			ret += Dfs(pos + <span class="number">1</span>, sta ^ (<span class="number">1</span> &lt;&lt; ac[pos][i]));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">			<span class="keyword">if</span> (a[j] &lt;= b[i])</span><br><span class="line">				ac[i].push_back(j);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, Dfs(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For <span class="math inline">\(n \le 20\)</span>, sort <span class="math inline">\(b\)</span> from smallest to largest. Let set <span class="math inline">\(s_{i} = \left \\{ a_{j} \mid a_{j} \le b_{i} \right \\}\)</span>. Note that <span class="math inline">\(s_{1}\subseteq s_{2} \subseteq \dotsm \subseteq s_{n}\)</span>, as <span class="math inline">\(b\)</span> is increasing. When we decide which to choose in position <span class="math inline">\(i\)</span>, all the previous chosen elements belong to <span class="math inline">\(s_{i}\)</span>, that means there are only <span class="math inline">\(\left | s_{i} \right | - i + 1\)</span> choises in <span class="math inline">\(s_{i}\)</span>. So the answer is <span class="math display">\[\prod_{1 \le i \le n}^{} (\left | s_{i} \right | - i + 1)\]</span></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::sort;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">30</span>], b[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Count</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (a[i] &lt;= x)</span><br><span class="line">			++ret;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">	sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">	LL ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		ans *= Count(b[i]) - i + <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PS: My Arch Linux recently broken down :(</strong><br />
+<strong>It took me months to repair it</strong><br />
+<strong>That's my I haven't updated my blog for a long time ;)</strong></p>
+
+    </div>
+
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Ancker-0
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/" title="[SOLUTION] USACO 2021 JAN Bronze">http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"># 题解</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/07/Crafting-Winning-Solutions/" rel="prev" title="Crafting Winning Solutions">
+      <i class="fa fa-chevron-left"></i> Crafting Winning Solutions
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uddered-but-not-herd"><span class="nav-number">1.</span> <span class="nav-text">Uddered but not Herd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#even-more-odd-photos"><span class="nav-number">2.</span> <span class="nav-text">Even More Odd Photos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#just-stalling"><span class="nav-number">3.</span> <span class="nav-text">Just Stalling</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ancker-0</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ancker-0" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ancker-0" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:Andy87654@outlook.com" title="E-Mail → mailto:Andy87654@outlook.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.luogu.com.cn/user/346119" title="Luogu → https:&#x2F;&#x2F;www.luogu.com.cn&#x2F;user&#x2F;346119" rel="noopener" target="_blank"><i class="fab fa-delicious fa-fw"></i>Luogu</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://music.163.com/#/user/home?id=1391686404" title="网易云 → https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;1391686404" rel="noopener" target="_blank"><i class="fa fa-music fa-fw"></i>网易云</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://oi-wiki.org/" title="http:&#x2F;&#x2F;oi-wiki.org&#x2F;" rel="noopener" target="_blank">OI Wiki</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://bytew.net/OIer/" title="https:&#x2F;&#x2F;bytew.net&#x2F;OIer&#x2F;" rel="noopener" target="_blank">OIerDb</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yizhao.xyz:444/" title="https:&#x2F;&#x2F;www.yizhao.xyz:444&#x2F;" rel="noopener" target="_blank">PigeonBlog</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://tding.top/" title="https:&#x2F;&#x2F;tding.top&#x2F;" rel="noopener" target="_blank">小丁的个人博客</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ancker-0</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '84472913d7e54ad4ba2e',
+      clientSecret: '59a510b231507bfaa5eb8428c055032ae30205fc',
+      repo        : 'Ancker-0.github.io',
+      owner       : 'Ancker-0',
+      admin       : ['Ancker-0'],
+      id          : '8ca90025a8bdea18ba1f9b25e322db87',
+        language: 'en',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

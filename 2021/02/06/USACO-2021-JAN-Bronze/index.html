@@ -28,9 +28,10 @@
 <meta property="og:description" content="Uddered but not Herd">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-02-06T08:36:12.000Z">
-<meta property="article:modified_time" content="2021-02-06T08:41:22.172Z">
+<meta property="article:modified_time" content="2021-02-07T05:57:45.711Z">
 <meta property="article:author" content="Ancker-0">
 <meta property="article:tag" content="题解">
+<meta property="article:tag" content="USACO">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://ancker-0.github.io/2021/02/06/USACO-2021-JAN-Bronze/">
@@ -193,10 +194,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2021-02-06 16:36:12 / Modified: 16:41:22" itemprop="dateCreated datePublished" datetime="2021-02-06T16:36:12+08:00">2021-02-06</time>
+              <time title="Created: 2021-02-06 16:36:12" itemprop="dateCreated datePublished" datetime="2021-02-06T16:36:12+08:00">2021-02-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2021-02-07 13:57:45" itemprop="dateModified" datetime="2021-02-07T13:57:45+08:00">2021-02-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -218,88 +225,70 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="uddered-but-not-herd">Uddered but not Herd</h2>
-<a id="more"></a>
-<p>Statement:</p>
-<div class="tabs" id="uddered-but-not-herd"><ul class="nav-tabs"><li class="tab active"><a href="#uddered-but-not-herd-1">En</a></li><li class="tab"><a href="#uddered-but-not-herd-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="uddered-but-not-herd-1"><p>A little known fact about cows is that they have their own version of the alphabet, the "cowphabet". It consists of the 26 letters 'a' through 'z', but when a cow speaks the cowphabet, she lists these letters in a specific ordering that might be different from the order 'abcdefghijklmnopqrstuvwxyz' we are used to hearing. To pass the time, Bessie the cow has been humming the cowphabet over and over again, and Farmer John is curious how many times she's hummed it.</p>
-<p>Given a lowercase string of letters that Farmer John has heard Bessie say, compute the minimum number of times Bessie must have hummed the entire cowphabet in order for Farmer John to have heard the given string. Farmer John isn't always paying attention to what Bessie hums, and so he might have missed some of the letters that Bessie has hummed. The string you are told consists of just the letters that he remembers hearing.</p>
-<p>INPUT FORMAT (input arrives from the terminal / stdin): The first line of input contains the 26 lowercase letters 'a' through 'z' in the order they appear in the cowphabet. The next line contains the string of lowercase letters that Farmer John heard Bessie say. This string has length at least 1 and at most 1000. OUTPUT FORMAT (print output to the terminal / stdout): Print the minimum number of times Bessie must have hummed the entire cowphabet. SAMPLE INPUT: abcdefghijklmnopqrstuvwxyz mood SAMPLE OUTPUT: 3 In this example, the cowphabet is ordered the same as the normal alphabet.</p>
+        <h2 id="Uddered-but-not-Herd"><a href="#Uddered-but-not-Herd" class="headerlink" title="Uddered but not Herd"></a>Uddered but not Herd</h2><a id="more"></a>
+
+<p>Statement: </p>
+<div class="tabs" id="uddered-but-not-herd"><ul class="nav-tabs"><li class="tab active"><a href="#uddered-but-not-herd-1">En</a></li><li class="tab"><a href="#uddered-but-not-herd-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="uddered-but-not-herd-1"><p>A little known fact about cows is that they have their own version of the alphabet, the “cowphabet”. It consists of the 26 letters ‘a’ through ‘z’, but when a cow speaks the cowphabet, she lists these letters in a specific ordering that might be different from the order ‘abcdefghijklmnopqrstuvwxyz’ we are used to hearing.<br>To pass the time, Bessie the cow has been humming the cowphabet over and over again, and Farmer John is curious how many times she’s hummed it.</p>
+<p>Given a lowercase string of letters that Farmer John has heard Bessie say, compute the minimum number of times Bessie must have hummed the entire cowphabet in order for Farmer John to have heard the given string. Farmer John isn’t always paying attention to what Bessie hums, and so he might have missed some of the letters that Bessie has hummed. The string you are told consists of just the letters that he remembers hearing.</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin):<br>The first line of input contains the 26 lowercase letters ‘a’ through ‘z’ in the order they appear in the cowphabet. The next line contains the string of lowercase letters that Farmer John heard Bessie say. This string has length at least 1 and at most 1000.<br>OUTPUT FORMAT (print output to the terminal / stdout):<br>Print the minimum number of times Bessie must have hummed the entire cowphabet.<br>SAMPLE INPUT:<br>abcdefghijklmnopqrstuvwxyz<br>mood<br>SAMPLE OUTPUT:<br>3<br>In this example, the cowphabet is ordered the same as the normal alphabet.</p>
 <p>Bessie must have hummed the cowphabet at least three times. It is possible for Bessie to have only hummed the cowphabet three times, and for Farmer John to have heard the letters in uppercase as denoted below.</p>
-<p>abcdefghijklMnOpqrstuvwxyz abcdefghijklmnOpqrstuvwxyz abcDefghijklmnopqrstuvwxyz SCORING: In test cases 2-5, the cowphabet is the same as the normal alphabet. Test cases 6-10 satisfy no additional constraints.</p></div><div class="tab-pane" id="uddered-but-not-herd-2"><p>一个鲜为人知的事实是，奶牛拥有自己的文字：「牛文」。牛文由 26 个字母 'a' 到 'z' 组成，但是当奶牛说牛文时，可能与我们所熟悉的 'abcdefghijklmnopqrstuvwxyz' 不同，她会按某种特定的顺序排列字母。 为了打发时间，奶牛 Bessie 在反复哼唱牛文字母歌，而 Farmer John 好奇她唱了多少遍。</p>
+<p>abcdefghijklMnOpqrstuvwxyz<br>abcdefghijklmnOpqrstuvwxyz<br>abcDefghijklmnopqrstuvwxyz<br>SCORING:<br>In test cases 2-5, the cowphabet is the same as the normal alphabet.<br>Test cases 6-10 satisfy no additional constraints.</p></div><div class="tab-pane" id="uddered-but-not-herd-2"><p>一个鲜为人知的事实是，奶牛拥有自己的文字：「牛文」。牛文由 26 个字母 ‘a’ 到 ‘z’ 组成，但是当奶牛说牛文时，可能与我们所熟悉的 ‘abcdefghijklmnopqrstuvwxyz’ 不同，她会按某种特定的顺序排列字母。<br>为了打发时间，奶牛 Bessie 在反复哼唱牛文字母歌，而 Farmer John 好奇她唱了多少遍。</p>
 <p>给定一个小写字母组成的字符串，为 Farmer John 听到 Bessie 唱的字母，计算 Bessie 至少唱了几遍完整的牛文字母歌，使得 Farmer John 能够听到给定的字符串。Farmer John 并不始终注意 Bessie 所唱的内容，所以他可能会漏听 Bessie 唱过的一些字母。给定的字符串仅包含他记得他所听到的字母。</p>
-<p>输入格式（从终端/标准输入读入）： 输入的第一行包含 26 个小写字母 'a' 到 'z' 的牛文字母表顺序。下一行包含一个小写字母组成的字符串，为 Farmer John 听到 Bessie 唱的字母。字符串的长度不小于 1 且不大于 1000。 输出格式（输出至终端/标准输出）： 输出 Bessie 所唱的完整的牛文字母歌的最小次数。 输入样例： abcdefghijklmnopqrstuvwxyz mood 输出样例： 3 在这个样例中，牛文字母表与日常的字母表的排列一致。</p>
+<p>输入格式（从终端/标准输入读入）：<br>输入的第一行包含 26 个小写字母 ‘a’ 到 ‘z’ 的牛文字母表顺序。下一行包含一个小写字母组成的字符串，为 Farmer John 听到 Bessie 唱的字母。字符串的长度不小于 1 且不大于 1000。<br>输出格式（输出至终端/标准输出）：<br>输出 Bessie 所唱的完整的牛文字母歌的最小次数。<br>输入样例：<br>abcdefghijklmnopqrstuvwxyz<br>mood<br>输出样例：<br>3<br>在这个样例中，牛文字母表与日常的字母表的排列一致。</p>
 <p>Bessie 至少唱了三遍牛文字母歌。有可能 Bessie 只唱了三遍牛文字母歌，而 Farmer John 听到了以下被标记为大写的字母。</p>
-<p>abcdefghijklMnOpqrstuvwxyz abcdefghijklmnOpqrstuvwxyz abcDefghijklmnopqrstuvwxyz 测试点性质： 测试点 2-5 中，牛文字母表与日常的字母表相同。 测试点 6-10 没有额外限制。</p></div></div></div>
-<p>Suppose Bessie says <span class="math inline">\(s_{0...n - 1}\)</span>. First we can decode what Bessie says into ordered numbers. Second we count how many <span class="math inline">\(i \ne 0\)</span> appears such that <span class="math inline">\(s_{i} \le s_{i - 1}\)</span>. Every time such <span class="math inline">\(i\)</span> appears, it means that another song must begin. So <code>cnt + 1</code> will be the right answer.</p>
+<p>abcdefghijklMnOpqrstuvwxyz<br>abcdefghijklmnOpqrstuvwxyz<br>abcDefghijklmnopqrstuvwxyz<br>测试点性质：<br>测试点 2-5 中，牛文字母表与日常的字母表相同。<br>测试点 6-10 没有额外限制。</p></div></div></div>
+
+<p>Suppose Bessie says $s_{0…n - 1}$. First we can decode what Bessie says into ordered numbers. Second we count how many $i \ne 0$ appears such that $s_{i} \le s_{i - 1}$. Every time such $i$ appears, it means that another song must begin. So <code>cnt + 1</code> will be the right answer.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> dict[<span class="number">30</span>], input[<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">30</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Decode</span><span class="params">(<span class="keyword">char</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">map</span>[x - <span class="string">&#x27;a&#x27;</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%s%s&quot;</span>, dict, input);</span><br><span class="line">	n = <span class="built_in">strlen</span>(input);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">		<span class="built_in">map</span>[dict[i] - <span class="string">&#x27;a&#x27;</span>] = i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (Decode(input[i]) &lt;= Decode(input[i - <span class="number">1</span>]))</span><br><span class="line">			++ans;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="even-more-odd-photos">Even More Odd Photos</h2>
-<p>Statement:</p>
-<div class="tabs" id="even-more-odd-photos"><ul class="nav-tabs"><li class="tab active"><a href="#even-more-odd-photos-1">En</a></li><li class="tab"><a href="#even-more-odd-photos-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="even-more-odd-photos-1"><p>Farmer John is yet again trying to take a photograph of his N cows (2≤N≤1000). Each cow has an integer "breed ID" number in the range 1…100. Farmer John has a very peculiar idea in mind for his photo: he wants to partition all the cows into disjoint groups (in other words, place each cow in exactly one group) and then line up the groups so the sum of the breed IDs of the cows in the first group is even, the sum of the IDs in the second group is odd, and so on, alternating between even and odd.</p>
+
+<h2 id="Even-More-Odd-Photos"><a href="#Even-More-Odd-Photos" class="headerlink" title="Even More Odd Photos"></a>Even More Odd Photos</h2><p>Statement:</p>
+<div class="tabs" id="even-more-odd-photos"><ul class="nav-tabs"><li class="tab active"><a href="#even-more-odd-photos-1">En</a></li><li class="tab"><a href="#even-more-odd-photos-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="even-more-odd-photos-1"><p>Farmer John is yet again trying to take a photograph of his N cows (2≤N≤1000).<br>Each cow has an integer “breed ID” number in the range 1…100. Farmer John has a very peculiar idea in mind for his photo: he wants to partition all the cows into disjoint groups (in other words, place each cow in exactly one group) and then line up the groups so the sum of the breed IDs of the cows in the first group is even, the sum of the IDs in the second group is odd, and so on, alternating between even and odd.</p>
 <p>What is the maximum possible number of groups Farmer John can form?</p>
-<p>INPUT FORMAT (input arrives from the terminal / stdin): The first line of input contains N. The next line contains N space-separated integers giving the breed IDs of the N cows. OUTPUT FORMAT (print output to the terminal / stdout): The maximum possible number of groups in Farmer John's photo. It can be shown that at least one feasible grouping exists. SAMPLE INPUT: 7 1 3 5 7 9 11 13 SAMPLE OUTPUT: 3 In this example, one way to form the maximum number of three groups is as follows. Place 1 and 3 in the first group, 5, 7, and 9 in the second group, and 11 and 13 in the third group.</p>
-<p>SAMPLE INPUT: 7 11 2 17 13 1 15 3 SAMPLE OUTPUT: 5 In this example, one way to form the maximum number of five groups is as follows. Place 2 in the first group, 11 in the second group, 13 and 1 in the third group, 15 in the fourth group, and 17 and 3 in the fifth group.</p></div><div class="tab-pane" id="even-more-odd-photos-2"><p>Farmer John 正再一次尝试给他的 N 头奶牛拍照（2≤N≤1000）。<br />
-每头奶牛有一个范围在 1…100 之内的整数的「品种编号」。Farmer John 对他的照片有一个十分古怪的构思：他希望将所有的奶牛分为不相交的若干组（换句话说，将每头奶牛分到恰好一组中）并将这些组排成一行，使得第一组的奶牛的品种编号之和为偶数，第二组的编号之和为奇数，以此类推，奇偶交替。</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin):<br>The first line of input contains N. The next line contains N space-separated integers giving the breed IDs of the N cows.<br>OUTPUT FORMAT (print output to the terminal / stdout):<br>The maximum possible number of groups in Farmer John’s photo. It can be shown that at least one feasible grouping exists.<br>SAMPLE INPUT:<br>7<br>1 3 5 7 9 11 13<br>SAMPLE OUTPUT:<br>3<br>In this example, one way to form the maximum number of three groups is as follows. Place 1 and 3 in the first group, 5, 7, and 9 in the second group, and 11 and 13 in the third group.</p>
+<p>SAMPLE INPUT:<br>7<br>11 2 17 13 1 15 3<br>SAMPLE OUTPUT:<br>5<br>In this example, one way to form the maximum number of five groups is as follows. Place 2 in the first group, 11 in the second group, 13 and 1 in the third group, 15 in the fourth group, and 17 and 3 in the fifth group.</p></div><div class="tab-pane" id="even-more-odd-photos-2"><p>Farmer John 正再一次尝试给他的 N 头奶牛拍照（2≤N≤1000）。<br>每头奶牛有一个范围在 1…100 之内的整数的「品种编号」。Farmer John 对他的照片有一个十分古怪的构思：他希望将所有的奶牛分为不相交的若干组（换句话说，将每头奶牛分到恰好一组中）并将这些组排成一行，使得第一组的奶牛的品种编号之和为偶数，第二组的编号之和为奇数，以此类推，奇偶交替。</p>
 <p>Farmer John 可以分成的最大组数是多少？</p>
-<p>输入格式（从终端/标准输入读入）：<br />
-输入的第一行包含 N。下一行包含 N 个空格分隔的整数，为 N 头奶牛的品种编号。</p>
-<p>输出格式（输出至终端/标准输出）：<br />
-输出 Farmer John 的照片中的最大组数。可以证明，至少存在一种符合要求的分组方案。</p>
-<p>输入样例：<br />
-7<br />
-1 3 5 7 9 11 13</p>
-<p>输出样例：<br />
-3</p>
+<p>输入格式（从终端/标准输入读入）：<br>输入的第一行包含 N。下一行包含 N 个空格分隔的整数，为 N 头奶牛的品种编号。</p>
+<p>输出格式（输出至终端/标准输出）：<br>输出 Farmer John 的照片中的最大组数。可以证明，至少存在一种符合要求的分组方案。</p>
+<p>输入样例：<br>7<br>1 3 5 7 9 11 13</p>
+<p>输出样例：<br>3</p>
 <p>在这个样例中，以下是一种分成最大组数三组的方案。将 1 和 3 分在第一组，5、7 和 9 分在第二组，11 和 13 分在第三组。</p>
-<p>输入样例：<br />
-7<br />
-11 2 17 13 1 15 3</p>
-<p>输出样例：<br />
-5</p>
+<p>输入样例：<br>7<br>11 2 17 13 1 15 3</p>
+<p>输出样例：<br>5</p>
 <p>在这个样例中，以下是一种分成最大组数五组的方案。将 2 分在第一组，11 分在第二组，13 和 1 分在第三组，15 分在第四组，17 和 3 分在第五组。</p></div></div></div>
-<p>It doesn't matter how tall the cow is or the order of them. It matters if a height is odd or even. Just simply count how many odd numbers and even numbers, list all possible situations.</p>
+
+<p>It doesn’t matter how tall the cow is or the order of them. It matters if a height is odd or even. Just simply count how many odd numbers and even numbers, list all possible situations.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> odd = <span class="number">0</span>, even = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; ++i) &#123;</span><br><span class="line">		<span class="keyword">int</span> a;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a);</span><br><span class="line">		<span class="keyword">if</span> (a &amp; <span class="number">1</span>) ++odd;</span><br><span class="line">		<span class="keyword">else</span> ++even;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (even == odd) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, n);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (even &gt; odd) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, odd * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;  <span class="comment">// even &lt; odd</span></span><br><span class="line">		<span class="keyword">if</span> (odd == <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;1\n&quot;</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			odd -= even;</span><br><span class="line">			<span class="keyword">if</span> (odd % <span class="number">3</span> == <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span> - <span class="number">1</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (odd % <span class="number">3</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span>);</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;  <span class="comment">// odd % 3 == 2</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, even * <span class="number">2</span> + odd / <span class="number">3</span> * <span class="number">2</span> + <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="just-stalling">Just Stalling</h2>
-<p>Statement:</p>
+
+<h2 id="Just-Stalling"><a href="#Just-Stalling" class="headerlink" title="Just Stalling"></a>Just Stalling</h2><p>Statement:</p>
 <div class="tabs" id="just-stalling"><ul class="nav-tabs"><li class="tab active"><a href="#just-stalling-1">En</a></li><li class="tab"><a href="#just-stalling-2">Zh</a></li></ul><div class="tab-content"><div class="tab-pane active" id="just-stalling-1"><p>Farmer John has N cows (1≤N≤20) of heights a1…aN. His barn has N stalls with max height limits b1…bN (so for example, if b5=17, then a cow of height at most 17 can reside in stall 5). In how many distinct ways can Farmer John arrange his cows so that each cow is in a different stall, and so that the height limit is satisfied for every stall?</p>
-<p>INPUT FORMAT (input arrives from the terminal / stdin):<br />
-The first line contains N. The second line contains N space-separated integers a1,a2,…,aN. The third line contains N space-separated integers b1,b2,…,bN. All heights and limits are in the range [1,109].</p>
-<p>OUTPUT FORMAT (print output to the terminal / stdout):<br />
-The number of ways Farmer John can place each cow into a different stall such that the height limit is satisfied for every stall. Note that the large size of the output might require the use of a 64-bit integer, like a "long long" in C++.</p>
-<p>SAMPLE INPUT:<br />
-4<br />
-1 2 3 4<br />
-2 4 3 4</p>
-<p>SAMPLE OUTPUT:<br />
-8</p>
+<p>INPUT FORMAT (input arrives from the terminal / stdin):<br>The first line contains N. The second line contains N space-separated integers a1,a2,…,aN. The third line contains N space-separated integers b1,b2,…,bN. All heights and limits are in the range [1,109].</p>
+<p>OUTPUT FORMAT (print output to the terminal / stdout):<br>The number of ways Farmer John can place each cow into a different stall such that the height limit is satisfied for every stall. Note that the large size of the output might require the use of a 64-bit integer, like a “long long” in C++.</p>
+<p>SAMPLE INPUT:<br>4<br>1 2 3 4<br>2 4 3 4  </p>
+<p>SAMPLE OUTPUT:<br>8</p>
 <p>In this example, we cannot place the third cow into the first stall since 3=a3&gt;b1=2. Similarly, we cannot place the fourth cow into the first or third stalls. One way to satisfy the height limits is to assign cow 1 to stall 1, cow 2 to stall 2, cow 3 to stall 3, and cow 4 to stall 4.</p>
 <p>SCORING:</p>
 <ul>
 <li>Test cases 1-5 satisfy N≤8.</li>
 <li>Test cases 6-12 satisfy no additional constraints.</li>
 </ul></div><div class="tab-pane" id="just-stalling-2"><p>Farmer John 有 N 头奶牛（1≤N≤20），高度为 a1…aN。他的牛栏有 N 个牛棚，高度限制分别为 b1…bN（例如，如果 b5=17，那么一头高度不超过 17 的奶牛可以住在牛棚 5 里）。Farmer John 有多少种不同的方式安排他的奶牛，使得每头奶牛均住在不同的牛棚里，并且使得每个牛棚的高度限制均得到满足？</p>
-<p>输入格式（从终端/标准输入读入）：<br />
-输入的第一行包含 N。第二行包含 N 个空格分隔的整数 a1,a2,…,aN。第三行包含 N 个空格分隔的整数 b1,b2,…,bN。所有的高度和高度限制均在范围 [1,109] 内。</p>
-<p>输出格式（输出至终端/标准输出）：<br />
-输出 Farmer John 可以将每头奶牛安排到不同的牛棚里，使得每个牛棚的高度限制均得到满足的方法数。注意输出的数量可能需要使用 64 位整数型，例如 C++ 中的 long long。</p>
-<p>输入样例：<br />
-4<br />
-1 2 3 4<br />
-2 4 3 4</p>
-<p>输出样例：<br />
-8</p>
+<p>输入格式（从终端/标准输入读入）：<br>输入的第一行包含 N。第二行包含 N 个空格分隔的整数 a1,a2,…,aN。第三行包含 N 个空格分隔的整数 b1,b2,…,bN。所有的高度和高度限制均在范围 [1,109] 内。</p>
+<p>输出格式（输出至终端/标准输出）：<br>输出 Farmer John 可以将每头奶牛安排到不同的牛棚里，使得每个牛棚的高度限制均得到满足的方法数。注意输出的数量可能需要使用 64 位整数型，例如 C++ 中的 long long。</p>
+<p>输入样例：<br>4<br>1 2 3 4<br>2 4 3 4</p>
+<p>输出样例：<br>8</p>
 <p>在这个例子中，我们不能将第三头奶牛安排到第一个牛棚里，因为 3=a3&gt;b1=2。类似地，我们不能将第四头奶牛安排到第一或第三个牛棚里。一种符合高度限制的安排方式为将奶牛 1 安排到牛棚 1，奶牛 2 安排到牛棚 2，奶牛 3 安排到牛棚 3，奶牛 4 安排到牛棚 4。</p>
 <p>测试点性质：</p>
 <ul>
 <li>测试点 1-5 满足 N≤8。</li>
 <li>测试点 6-12 没有额外限制。</li>
 </ul></div></div></div>
-<p>For <span class="math inline">\(n \le 8\)</span>, we can enumerate all possible permutations and check if they are legal. This takes <span class="math inline">\(O(n!)\)</span> time.</p>
+
+<p>For $n \le 8$, we can enumerate all possible permutations and check if they are legal. This takes $O(n!)$ time.</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::<span class="built_in">vector</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">30</span>], b[<span class="number">30</span>];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ac[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">Dfs</span><span class="params">(<span class="keyword">int</span> pos, <span class="keyword">int</span> sta)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (pos == n + <span class="number">1</span>)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">	LL ret = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>, sz = (<span class="keyword">int</span>)ac[pos].size(); i &lt; sz; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((sta &amp; (<span class="number">1</span> &lt;&lt; ac[pos][i])) == <span class="number">0</span>)</span><br><span class="line">			ret += Dfs(pos + <span class="number">1</span>, sta ^ (<span class="number">1</span> &lt;&lt; ac[pos][i]));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; ++j)</span><br><span class="line">			<span class="keyword">if</span> (a[j] &lt;= b[i])</span><br><span class="line">				ac[i].push_back(j);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, Dfs(<span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>For <span class="math inline">\(n \le 20\)</span>, sort <span class="math inline">\(b\)</span> from smallest to largest. Let set <span class="math inline">\(s_{i} = \left \{ a_{j} \mid a_{j} \le b_{i} \right \}\)</span>. Note that <span class="math inline">\(s_{1}\subseteq s_{2} \subseteq \dotsm \subseteq s_{n}\)</span>, as <span class="math inline">\(b\)</span> is increasing. When we decide which to choose in position <span class="math inline">\(i\)</span>, all the previous chosen elements belong to <span class="math inline">\(s_{i}\)</span>, that means there are only <span class="math inline">\(\left | s_{i} \right | - i + 1\)</span> choises in <span class="math inline">\(s_{i}\)</span>. So the answer is <span class="math display">\[\prod_{1 \le i \le n}^{} (\left | s_{i} \right | - i + 1)\]</span></p>
+
+<p>For $n \le 20$, sort $b$ from smallest to largest. Let set $s_{i} = \left { a_{j} \mid a_{j} \le b_{i} \right }$. Note that $s_{1}\subseteq s_{2} \subseteq \dotsm \subseteq s_{n}$, as $b$ is increasing. When we decide which to choose in position $i$, all the previous chosen elements belong to $s_{i}$, that means there are only $\left | s_{i} \right | - i + 1$ choises in $s_{i}$. So the answer is $$\prod_{1 \le i \le n}^{} (\left | s_{i} \right | - i + 1)$$</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="built_in">std</span>::sort;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">30</span>], b[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Count</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="keyword">if</span> (a[i] &lt;= x)</span><br><span class="line">			++ret;</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;b[i]);</span><br><span class="line">	sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">	LL ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">		ans *= Count(b[i]) - i + <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>PS: My Arch Linux recently broken down :(</strong><br />
-<strong>It took me months to repair it</strong><br />
-<strong>That's my I haven't updated my blog for a long time ;)</strong></p>
+
+<p><strong>PS: My Arch Linux recently broken down :(</strong><br><strong>It took me months to repair it</strong><br><strong>That’s my I haven’t updated my blog for a long time ;)</strong></p>
 
     </div>
 
@@ -327,6 +316,7 @@ The number of ways Farmer John can place each cow into a different stall such th
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"># 题解</a>
+              <a href="/tags/USACO/" rel="tag"># USACO</a>
           </div>
 
         
@@ -338,7 +328,10 @@ The number of ways Farmer John can place each cow into a different stall such th
     <a href="/2021/01/07/Crafting-Winning-Solutions/" rel="prev" title="Crafting Winning Solutions">
       <i class="fa fa-chevron-left"></i> Crafting Winning Solutions
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/02/07/IRC/" rel="next" title="在 Linux 上搭建自己的 IRC 服务器">
+      在 Linux 上搭建自己的 IRC 服务器 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -398,7 +391,7 @@ The number of ways Farmer John can place each cow into a different stall such th
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uddered-but-not-herd"><span class="nav-number">1.</span> <span class="nav-text">Uddered but not Herd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#even-more-odd-photos"><span class="nav-number">2.</span> <span class="nav-text">Even More Odd Photos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#just-stalling"><span class="nav-number">3.</span> <span class="nav-text">Just Stalling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Uddered-but-not-Herd"><span class="nav-number">1.</span> <span class="nav-text">Uddered but not Herd</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Even-More-Odd-Photos"><span class="nav-number">2.</span> <span class="nav-text">Even More Odd Photos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Just-Stalling"><span class="nav-number">3.</span> <span class="nav-text">Just Stalling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -412,20 +405,20 @@ The number of ways Farmer John can place each cow into a different stall such th
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

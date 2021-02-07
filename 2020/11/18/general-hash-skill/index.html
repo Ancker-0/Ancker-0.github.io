@@ -229,66 +229,41 @@
 <p>Hash 就是一通乱搞。</p>
 </blockquote>
 <a id="more"></a>
+
 <p>并且 Hash 有助于提高我们的思维能力 <del>（水过字符串匹配的题）</del>。</p>
 <p>由此可见 Hash 的重要性，因此接下来介绍常见的几种 Hash 方法，这些方法常常组合在一起使用。</p>
-<h3 id="转换进制">转换进制</h3>
-<p>把一个进制下的数字当作另一个进制来处理。</p>
+<h3 id="转换进制"><a href="#转换进制" class="headerlink" title="转换进制"></a>转换进制</h3><p>把一个进制下的数字当作另一个进制来处理。</p>
 <p>例如，我们把 10 进制的 123 作为 13 进制：</p>
-<p><span class="math display">\[
-123=1\times10^2+2\times10^1+3\times10^0
-\]</span></p>
+<p>$$<br>123=1\times10^2+2\times10^1+3\times10^0<br>$$</p>
 <p>作为 13 进制就是：</p>
-<p><span class="math display">\[
-(123)_{13}=1\times13^2+2\times13^1+3\times13^0=198
-\]</span></p>
+<p>$$<br>(123)_{13}=1\times13^2+2\times13^1+3\times13^0=198<br>$$</p>
 <p>人们发现 <del>（懒得证明）</del>，当基数（上例中为 13）取质数时，产生冲突的几率较小，取 131，13331 时发生冲突的概率尤其小。</p>
 <p>推而广之，我们还可以这样：</p>
-<p><span class="math display">\[
-hash(x)=7\times x_1+77\times x_2+777\times x_3+\dots
-\]</span></p>
-<h3 id="取模法">取模法</h3>
-<p>顾名思义，对一个质数取模。</p>
-<p>通常这个质数取值为小于 <span class="math inline">\(2^{\lceil\log_2n\rceil}\)</span> 的最大质数，其中 <span class="math inline">\(n\)</span> 为 <em>需要离散化的元素个数</em>。</p>
+<p>$$<br>hash(x)=7\times x_1+77\times x_2+777\times x_3+\dots<br>$$</p>
+<h3 id="取模法"><a href="#取模法" class="headerlink" title="取模法"></a>取模法</h3><p>顾名思义，对一个质数取模。</p>
+<p>通常这个质数取值为小于 $2^{\lceil\log_2n\rceil}$ 的最大质数，其中 $n$ 为 <em>需要离散化的元素个数</em>。</p>
 <p>即</p>
-<p><span class="math display">\[
-hash(x)=x\bmod p
-\]</span></p>
-<p>常用的质数有：<span class="math inline">\(97,997,4999,9973,49999,99991,999979,9999991,10^9+7,10^9+9\)</span></p>
+<p>$$<br>hash(x)=x\bmod p<br>$$</p>
+<p>常用的质数有：$97,997,4999,9973,49999,99991,999979,9999991,10^9+7,10^9+9$</p>
 <p><a target="_blank" rel="noopener" href="https://www.haomeili.net/ZhiShu"><em>这是一个查询质数的网站</em></a>。</p>
-<h3 id="自然溢出法">自然溢出法</h3>
-<p>同取模法，依据 <code>unsigned long long</code> 和 <code>unsigned int</code> 会自动抛弃越界的数的特性进行处理，通常用于只需要判断相等而不需要储存（因为结果可能会特别大）的时候。</p>
-<h3 id="拉链法">拉链法</h3>
-<p>在处理时如果遇到冲突，通常需要拉出一个链表，此时可以取：</p>
-<p><span class="math display">\[
-hash&#39;(x)=hash(x)+i\ |\ src(hash(x)+i)=x
-\]</span></p>
-<p>即当 <span class="math inline">\(hash(x)\)</span> 已经被 <span class="math inline">\(y\ne x\ |\ hash(y)=hash(x)\)</span> 占用时，取下一个位置，若还被占用，就再往下找，依次类推。</p>
-<p>上例中，<span class="math inline">\(i\)</span> 取 <span class="math inline">\(1,2,3,\dots\)</span>，但如果 <span class="math inline">\(hash\)</span> 的值普遍集中在一个区域内，就会消耗较多时间，因此也可以取 <span class="math inline">\(1^2,2^2,3^2,4^2,\dots\)</span>。</p>
-<p>当然，为了访问随机，<span class="math inline">\(i\)</span> 也可以取 <span class="math inline">\(hash(i)\)</span>。</p>
-<h3 id="高低位">高低位</h3>
-<p>这是双 Hash 的一种，顾名思义，就是高位和低位使用两种不同的 Hash 函数，再组合到一起。</p>
-<p>取 <span class="math inline">\(p_1,p_2\)</span> 为质数且 <span class="math inline">\(p_2\times(p_1+1)&lt;n\)</span>，其中 <span class="math inline">\(n\)</span> 为 <em>需要离散化的元素个数</em>。取 <span class="math inline">\(k_1,k_2\)</span> 为转换的进制且 <span class="math inline">\(k_1\ne k_2\)</span>。运用转换进制和取模法，将 <span class="math inline">\(x\)</span> 转为 <span class="math inline">\(k\)</span> 进制后对 <span class="math inline">\(p\)</span> 取模，得到 <span class="math inline">\(hash1(x),hash2(x)\)</span>。最终再将两个结合在一起，即</p>
-<p><span class="math display">\[
-hash(x)=p_2\times hash1(x)+hash2(x)
-\]</span></p>
+<h3 id="自然溢出法"><a href="#自然溢出法" class="headerlink" title="自然溢出法"></a>自然溢出法</h3><p>同取模法，依据 <code>unsigned long long</code> 和 <code>unsigned int</code> 会自动抛弃越界的数的特性进行处理，通常用于只需要判断相等而不需要储存（因为结果可能会特别大）的时候。</p>
+<h3 id="拉链法"><a href="#拉链法" class="headerlink" title="拉链法"></a>拉链法</h3><p>在处理时如果遇到冲突，通常需要拉出一个链表，此时可以取：</p>
+<p>$$<br>hash’(x)=hash(x)+i\ |\ src(hash(x)+i)=x<br>$$</p>
+<p>即当 $hash(x)$ 已经被 $y\ne x\ |\ hash(y)=hash(x)$ 占用时，取下一个位置，若还被占用，就再往下找，依次类推。</p>
+<p>上例中，$i$ 取 $1,2,3,\dots$，但如果 $hash$ 的值普遍集中在一个区域内，就会消耗较多时间，因此也可以取 $1^2,2^2,3^2,4^2,\dots$。</p>
+<p>当然，为了访问随机，$i$ 也可以取 $hash(i)$。</p>
+<h3 id="高低位"><a href="#高低位" class="headerlink" title="高低位"></a>高低位</h3><p>这是双 Hash 的一种，顾名思义，就是高位和低位使用两种不同的 Hash 函数，再组合到一起。</p>
+<p>取 $p_1,p_2$ 为质数且 $p_2\times(p_1+1)&lt;n$，其中 $n$ 为 <em>需要离散化的元素个数</em>。取 $k_1,k_2$ 为转换的进制且 $k_1\ne k_2$。运用转换进制和取模法，将 $x$ 转为 $k$ 进制后对 $p$ 取模，得到 $hash1(x),hash2(x)$。最终再将两个结合在一起，即</p>
+<p>$$<br>hash(x)=p_2\times hash1(x)+hash2(x)<br>$$</p>
 <p>如果不需要储存，只需要判断相等，也可以分两个数组存放两种 Hash；或者用自然溢出，将两个定义域为 <code>unsigned int</code> 的 Hash 函数组合为 <code>unsigned long long</code>，前后 32 位存放不同的 Hash 值。</p>
-<h3 id="前缀和">前缀和</h3>
-<p>方法类似于前缀和，但有所不同，用此方法可以快速求字符串的子串的哈希值。</p>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><p>方法类似于前缀和，但有所不同，用此方法可以快速求字符串的子串的哈希值。</p>
 <p>该方法只适用于转换进制法。</p>
-<p>例如 str='12345'，转为 k 进制，易得：</p>
-<p><span class="math display">\[
-\begin{aligned}
-hash(123)&amp;=1\times k^2+2\times k^1+3\times k^0\\\\
-hash(45)&amp;=&amp;4\times k^1+5\times k^0\\\\
-hash(12345)&amp;=1\times k^4+2\times k^3+3\times k^2+&amp;4\times k^1+5\times k^0
-\end{aligned}
-\]</span></p>
+<p>例如 str=’12345’，转为 k 进制，易得：</p>
+<p>$$<br>\begin{aligned}<br>hash(123)&amp;=1\times k^2+2\times k^1+3\times k^0\\<br>hash(45)&amp;=&amp;4\times k^1+5\times k^0\\<br>hash(12345)&amp;=1\times k^4+2\times k^3+3\times k^2+&amp;4\times k^1+5\times k^0<br>\end{aligned}<br>$$</p>
 <p>显然：</p>
-<p><span class="math display">\[
-hash(45)=hash(12345)-k^2hash(123)
-\]</span></p>
-<p>类似地，<span class="math inline">\(hash(str_{i,j})=hash(str_{0,j})-k^{j-i+1}hash(str_{0,i-1})\)</span></p>
-<p>预处理时，可以 <span class="math inline">\(O(n)\)</span> 一遍扫过去，还可以先预处理出 <span class="math inline">\(k^i\)</span>。</p>
+<p>$$<br>hash(45)=hash(12345)-k^2hash(123)<br>$$</p>
+<p>类似地，$hash(str_{i,j})=hash(str_{0,j})-k^{j-i+1}hash(str_{0,i-1})$</p>
+<p>预处理时，可以 $O(n)$ 一遍扫过去，还可以先预处理出 $k^i$。</p>
 
     </div>
 
@@ -401,20 +376,20 @@ hash(45)=hash(12345)-k^2hash(123)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

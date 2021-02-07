@@ -224,19 +224,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>NOIP2020 的惨痛教训 <a id="more"></a></p>
-<h2 id="mle">MLE</h2>
-<p>T2 本来写了个毫无优化的 hash，有个 40 来分的，结果……</p>
+        <p>NOIP2020 的惨痛教训</p>
+<a id="more"></a>
+
+<h2 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h2><p>T2 本来写了个毫无优化的 hash，有个 40 来分的，结果……</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ps -eo size,comm | grep string</span><br><span class="line">542096 string</span><br></pre></td></tr></table></figure>
-<p><span class="math inline">\(542096 \div 1024 = 529 \text{MB} &gt; 512 \text{MB}\)</span></p>
+
+<p>$542096 \div 1024 = 529 \text{MB} &gt; 512 \text{MB}$</p>
 <p>所以……考场上一定要用 <code>ps -eo size,comm | grep XXX</code> 测试一下内存（单位是 KB），XXX 替换成程序名。</p>
 <p>还可以用 <code>time XXX</code> 运行你的程序以测试运行时间（real）。</p>
-<h2 id="spj">SPJ</h2>
-<p>NOIP2020 出人意料地出了一题 spj，还给了一个奇奇怪怪的 checker，于是我花了接近 20 分钟研究那个 checker，最后发现还是个普普通通的模拟，导致最后没什么时间了……所以，别在 checker 上浪费时间。</p>
-<h2 id="cmath">&lt;cmath&gt;</h2>
-<p>本人是十分喜欢用 C 风格的头文件的，因为编译速度飞快。然而，<code>&lt;cmath&gt;</code> 里的 <code>pow()</code> 似乎对于 <code>unsigned long long</code> 会溢出，导致一些奇怪的错误，所以一些如 <code>abs</code>、<code>min</code>、<code>pow</code> 之类的函数最好自己写。</p>
-<h2 id="netcat">netcat</h2>
-<p>突然发现 <code>NOI Linux</code> 上可以用 <code>nc</code>（<code>netcat</code>）命令通信，而且 JX 直接在实体机上装 Linux，所以……base64……咳咳</p>
+<h2 id="SPJ"><a href="#SPJ" class="headerlink" title="SPJ"></a>SPJ</h2><p>NOIP2020 出人意料地出了一题 spj，还给了一个奇奇怪怪的 checker，于是我花了接近 20 分钟研究那个 checker，最后发现还是个普普通通的模拟，导致最后没什么时间了……所以，别在 checker 上浪费时间。</p>
+<h2 id="lt-cmath-gt"><a href="#lt-cmath-gt" class="headerlink" title="&lt;cmath&gt;"></a>&lt;cmath&gt;</h2><p>本人是十分喜欢用 C 风格的头文件的，因为编译速度飞快。然而，<code>&lt;cmath&gt;</code> 里的 <code>pow()</code> 似乎对于 <code>unsigned long long</code> 会溢出，导致一些奇怪的错误，所以一些如 <code>abs</code>、<code>min</code>、<code>pow</code> 之类的函数最好自己写。</p>
+<h2 id="netcat"><a href="#netcat" class="headerlink" title="netcat"></a>netcat</h2><p>突然发现 <code>NOI Linux</code> 上可以用 <code>nc</code>（<code>netcat</code>）命令通信，而且 JX 直接在实体机上装 Linux，所以……base64……咳咳</p>
 
     </div>
 
@@ -338,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mle"><span class="nav-number">1.</span> <span class="nav-text">MLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spj"><span class="nav-number">2.</span> <span class="nav-text">SPJ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cmath"><span class="nav-number">3.</span> <span class="nav-text">&lt;cmath&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netcat"><span class="nav-number">4.</span> <span class="nav-text">netcat</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MLE"><span class="nav-number">1.</span> <span class="nav-text">MLE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPJ"><span class="nav-number">2.</span> <span class="nav-text">SPJ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-cmath-gt"><span class="nav-number">3.</span> <span class="nav-text">&lt;cmath&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#netcat"><span class="nav-number">4.</span> <span class="nav-text">netcat</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -352,20 +351,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

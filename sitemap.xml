@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ancker-0.github.io/2021/05/16/use-vim/</loc>
+    
+    <lastmod>2021-05-15</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ancker-0.github.io/jjchg/oath.html</loc>
     
     <lastmod>2021-03-27</lastmod>
@@ -172,7 +179,7 @@
 
   <url>
     <loc>http://ancker-0.github.io/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -180,63 +187,70 @@
   
   <url>
     <loc>http://ancker-0.github.io/tags/Note/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/%E9%A2%98%E8%A7%A3/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/USACO/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/Linux/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/IRC/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/%E6%95%A3%E6%96%87/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/%E6%B8%B8%E8%AE%B0/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/%E5%B0%8F%E8%AF%B4/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://ancker-0.github.io/tags/Vim/</loc>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/tags/%E4%BD%9C%E6%96%87/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -245,21 +259,21 @@
   
   <url>
     <loc>http://ancker-0.github.io/categories/OI/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/categories/%E6%96%87%E5%AD%A6/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://ancker-0.github.io/categories/CS/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-05-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
